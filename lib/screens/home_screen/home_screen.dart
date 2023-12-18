@@ -346,6 +346,84 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     children: [
                       const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(Icons.emergency),
+                              Text(
+                                "Pet Tips",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Text(
+                            "View More",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      ...List.generate(4, (index) {
+                        return SizedBox(
+                          child: Column(
+                            children: [
+                              ListTile(
+                                onTap: () => Get.to(const PetDetailsScreen()),
+                                leading: Image.network(
+                                  "https://free-icon.org/material/04-illustration/0390-download-image-m.png",
+                                ),
+                                title: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      decoration:
+                                          BoxDecoration(border: Border.all()),
+                                      child: const Padding(
+                                        padding: EdgeInsets.all(5.0),
+                                        child: Text(
+                                          "Pet Name",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 10)
+                                  ],
+                                ),
+                                subtitle: const Text(
+                                  "Foods Dog should not eat",
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                              ),
+                              const Divider()
+                            ],
+                          ),
+                        );
+                      })
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Card(
+                child: Container(
+                  padding: const EdgeInsets.all(20),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: Colors.white10,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    children: [
+                      const Row(
                         children: [
                           Icon(Icons.emergency),
                           Text(
@@ -392,6 +470,55 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Align(
+                alignment: AlignmentDirectional.topStart,
+                child: Text(
+                  "FAQ",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+              SizedBox(
+                height: 200,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 10,
+                    itemBuilder: (context, index) {
+                      return Card(
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              top: 28.0, right: 10, left: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                "Bio Matric For Pets",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const Text(
+                                "Pets",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              Expanded(
+                                child: Align(
+                                  alignment: AlignmentDirectional.bottomEnd,
+                                  child: Image.network(
+                                    "https://purepng.com/public/uploads/large/purepng.com-dog-lookinganimalsdog-981524671625rfjb4.png",
+                                    height: 100,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    }),
               )
             ],
           ),
